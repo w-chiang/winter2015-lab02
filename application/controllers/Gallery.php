@@ -6,11 +6,6 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Gallery
- *
- * @author Weary Yam
- */
 class Gallery extends CI_Controller {   
     public function gallery()
     {
