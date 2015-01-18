@@ -19,7 +19,7 @@ class Gallery extends Application {
         //load the table class
         $this->load->library('table');
         $parms = array(
-            'table_open' => 'table class="gallery">',
+            'table_open' => '<table class="gallery">',
             'cell_start' => '<td class="oneimage">',
             'cell_alt_start' => '<td class="oneimage">',
         );
