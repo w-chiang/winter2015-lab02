@@ -25,10 +25,19 @@ $this->data['pagetitle'] = 'Sample Image Gallery';
 */
 function render()
 {
-$this->data['menubar'] = build_menu_bar($this->choices);
+$this->data['menubar'] = $this->build_menu_bar($this->choices);
 $this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
 $this->data['data'] = &$this->data;
 $this->parser->parse('_template', $this->data);
+}
+
+function build_menu_bar($choices)
+{
+    $result = '<ul>';
+    foreach ($choices as $name => $link)
+	$result .= '<li>' . anchor($link, $name) . '</li>';
+    $result .= '</ul>';
+    return $result;
 }
 }
 /* End of file MY_Controller.php */

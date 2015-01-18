@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Images {
+class Images extends CI_Model {
     //put your code here
     function __construct() {
         parent::__construct();

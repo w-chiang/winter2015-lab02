@@ -14,7 +14,7 @@ class Gallery extends Application {
         
         //build an array of formatted cells
         foreach ($pics as $picture)
-            $cells[] = $this->parser->parser('_cell', (array) $picture, true);
+            $cells[] = $this->parser->parse('_cell', (array) $picture, true);
         
         //load the table class
         $this->load->library('table');
@@ -26,7 +26,7 @@ class Gallery extends Application {
         $this->table->set_template($parms);
         
         //generate the table
-        $rows = $this->tabl->make_columns($cells, 3);
+        $rows = $this->table->make_columns($cells, 3);
         $this->data['thetable'] = $this->table->generate($rows);
         
         //$this->load->view('gallery');
