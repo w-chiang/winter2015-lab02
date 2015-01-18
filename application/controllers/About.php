@@ -8,7 +8,7 @@
 
 class About extends Application {
     //put your code here
-    public function about()
+    public function index()
     {
         //$this->load->view('about');
         $this->data['pagebody'] = 'about';

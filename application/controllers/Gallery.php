@@ -7,11 +7,31 @@
  */
 
 class Gallery extends Application {   
-    public function gallery()
+    public function index()
     {
-            //$this->load->view('gallery');
-            $this->data['pagebody'] = 'gallery';
-            $this->render();
+        //get all pictures from the model
+        $pics = $this->images->all();
+        
+        //build an array of formatted cells
+        foreach ($pics as $picture)
+            $cells[] = $this->parser->parser('_cell', (array) $picture, true);
+        
+        //load the table class
+        $this->load->library('table');
+        $parms = array(
+            'table_open' => 'table class="gallery">',
+            'cell_start' => '<td class="oneimage">',
+            'cell_alt_start' => '<td class="oneimage">',
+        );
+        $this->table->set_template($parms);
+        
+        //generate the table
+        $rows = $this->tabl->make_columns($cells, 3);
+        $this->data['thetable'] = $this->table->generate($rows);
+        
+        //$this->load->view('gallery');
+        $this->data['pagebody'] = 'gallery';
+        $this->render();
     }
     //put your code here
 }
